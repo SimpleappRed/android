@@ -125,7 +125,7 @@ smsServices:
 
 - url: 'https://dryclean.ru/ajax/phone.validate.php'
   method: 'POST'
-  body: '{"PHONE":<num6>}'
+  body: '{"PHONE":"<num6>"}'
   okRes: '"message":'
   delay: 61
 
