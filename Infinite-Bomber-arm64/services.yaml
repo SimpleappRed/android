@@ -1,4 +1,4 @@
-﻿smsServices:
+smsServices:
 # ----------------
 # TEST "SERVICE"
 # - url: 'https://httpbin.org/post'
@@ -16,11 +16,11 @@
   okRes: '{"phone":"'
   delay: 121
 
-- url: 'https://belkacar.ru/get-confirmation-code'
-  method: 'POST'
-  body: 'phone=<num>'
+- url: 'https://belkacar.ru/get-confirmation-code+<num2>'
+  method: 'GET'
+#  body: 'phone=<num>'
   okRes: 'success":true'
-  delay: 61
+  delay: 65
 
 - url: 'https://drugvokrug.ru/siteActions/processSms.htm'
   method: 'POST'
@@ -59,9 +59,9 @@
   okRes: 'success":true'
   delay: 6
 
-- url: 'https://www.mvideo.ru/internal-rest-api/common/atg/rest/actors/VerificationActor/getCode?pageName=registerPrivateUserPhoneVerification'
+- url: 'https://www.mvideo.ru/internal-rest-api/common/atg/rest/actors/VerificationActor/getCodeForOtp?pageName=loginByUserPhoneVerification&fromCheckout=false&fromRegisterPage=true&snLogin=&bpg=&snProviderId=&phone=<num>'
   method: 'POST'
-  body: 'phone=<num>&g-recaptcha-response=&recaptcha=off'
+#  body: 'phone=<num>&g-recaptcha-response=&recaptcha=off'
   okRes: '"success": true'
   delay: 61
 
@@ -122,6 +122,13 @@
   body: '{"phone":"<num2>"}'
   okRes: '"token":'
   delay: 61
+
+- url: 'https://dryclean.ru/ajax/phone.validate.php'
+  method: 'POST'
+  body: '{"PHONE":"<num6>"}'
+  okRes: '"type":"ok"'
+  delay: 61
+
 
 callServices:
 - url: 'https://findclone.ru/register?phone=+<num>'
